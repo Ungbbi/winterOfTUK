@@ -64,7 +64,6 @@ http://localhost:3000/movie/info
 #### Request (JSON)
 GET요청이라 전달할 값이 없습니다.
 #### response (Status Code : 200)
-반환은 jwt 토큰 값이 반환됨.
 ```Node.js
 [
     {
@@ -206,25 +205,21 @@ GET 요청 따로 전송할 것 없습니다.
         "user_id": 1,
         "user_name": "박웅빈",
         "user_email": "mandarin1999@naver.com",
-        "user_password": "$2b$10$k9xkqpxZzljNgEE033AfCeAOioXyf7bp770x5D.32Xd.hwG5Ana6S"
     },
     {
         "user_id": 2,
         "user_name": "Scott",
         "user_email": "scott@naver.com",
-        "user_password": "$2b$10$aDohsY.o3R4TPwyYBZOfc.tEC1y4gAyRy2lE241VigNThSN1BXPf2"
     },
     {
         "user_id": 3,
         "user_name": "Tiger",
         "user_email": "tiger@naver.com",
-        "user_password": "$2b$10$y8K.yfvFue.Ae3kBeF.hK.CivLTPS4Zk7iCBlC1G1qcGEPEBOZmP2"
     },
     {
         "user_id": 4,
         "user_name": "Rina",
         "user_email": "rina@naver.com",
-        "user_password": "$2b$10$R0g7UUDQSk0qeQaRB.cJmePRRutRmpxuQ7FaJiDUI6hdLFArmr0CC"
     }
 ]
 ```
