@@ -22,7 +22,7 @@ class Movie {
   // 영화에 대한 한 줄 평 조회
   static async getMovieComments(movieId) {
     const [rows] = await pool.execute(
-      'SELECT review.comment, user.user_name FROM review JOIN user ON review.user_id = user.user_id WHERE movie_id = ?',
+      'SELECT user.user_name, review.rate ,review.comment FROM review JOIN user ON review.user_id = user.user_id WHERE movie_id = ?',
       [movieId]
     );
     return rows;

@@ -118,16 +118,19 @@ Value : 정수형 값
 ```Node.js
 [
     {
-        "comment": "so much fun",
-        "user_name": "Scott"
+        "user_name": "박평식",
+        "rate": 3,
+        "comment": "의외로 실망스러움"
     },
     {
-        "comment": "so fuxkin good",
-        "user_name": "Scott"
+        "user_name": "박평식",
+        "rate": 2,
+        "comment": "노잼!"
     },
     {
-        "comment": "Baddddd",
-        "user_name": "Scott"
+        "user_name": "박평식",
+        "rate": 5,
+        "comment": "재미없다면 영화보면 안되는 사람"
     }
 ]
 ```
@@ -176,16 +179,22 @@ Value: Bearer {{token}}
 ```Node.js
 [
     {
-        "movie_id": 20,
-        "comment": "so much fun",
-        "rate": 4,
-        "movie_name": "Secret"
+        "movie_id": 5,
+        "comment": "의외로 실망스러움",
+        "rate": 3,
+        "movie_name": "하얼빈"
     },
     {
-        "movie_id": 20,
-        "comment": "so fuxkin good",
+        "movie_id": 5,
+        "comment": "노잼!",
+        "rate": 2,
+        "movie_name": "하얼빈"
+    },
+    {
+        "movie_id": 5,
+        "comment": "재미없다면 영화보면 안되는 사람",
         "rate": 5,
-        "movie_name": "Secret"
+        "movie_name": "하얼빈"
     }
 ]
 ```
@@ -203,8 +212,8 @@ GET 요청 따로 전송할 것 없습니다.
 [
     {
         "user_id": 1,
-        "user_name": "박웅빈",
-        "user_email": "mandarin1999@naver.com",
+        "user_name": "박평식",
+        "user_email": "pps@naver.com",
     },
     {
         "user_id": 2,
