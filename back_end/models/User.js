@@ -18,7 +18,7 @@ class User {
   }
 
   static async getAllUsers() {
-    const [rows] = await pool.execute('SELECT * FROM user');
+    const [rows] = await pool.execute('SELECT user_id, user_name, user_email FROM user');
     return rows;
   }
 }
