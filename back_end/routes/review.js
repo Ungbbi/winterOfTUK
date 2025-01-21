@@ -4,6 +4,6 @@ const router = express.Router();
 const ReviewController = require('../controllers/reviewController');
 const { authenticateToken } = require('../middleware/auth');
 
-router.post('/review', authenticateToken, ReviewController.addReview);
+router.post('/addReview', authenticateToken, ReviewController.addReview);
 
 module.exports = router;
