@@ -2,11 +2,11 @@
 ---
 ## Auth
 ### 1. 회원가입API : POST
-#### URL
+- #### URL
 ```Node.js
 http://localhost:3000/auth/signup
 ```
-#### Request (JSON)
+- #### Request (JSON)
 ```Node.js
 {
   "username": "Scott",
@@ -14,40 +14,45 @@ http://localhost:3000/auth/signup
   "password": "1234"
 }
 ```
-#### response (Status Code : 201)
+- #### response (Status Code : 201)
 ```Node.js
 {
     "message": "회원가입 성공"
 }
 ```
+</br>
+</br>
 
 ### 2. 로그인 API : POST
-#### URL
+- #### URL
 ```Node.js
 http://localhost:3000/auth/login
 ```
-#### Request (JSON)
+- #### Request (JSON)
 ```Node.js
 {
   "email" : "scott@naver.com",
   "password": "1234"
 }
 ```
-#### response (Status Code : 201)
+- #### response (Status Code : 201)
 반환은 jwt 토큰 값이 반환됨.
 ```Node.js
 {
     "token": "암호화된 Hash PW값이 들어갑니다.  "
 }
 ```
+</br>
+</br>
+
 ### 3. 로그아웃 API : GET
-#### URL
+- #### URL
 ```Node.js
 http://localhost:3000/auth/logout
 ```
-#### Request (JSON)
+- #### Request (JSON)
 그냥 url로 요청 보내면 됩니다.
-#### response (Status Code : 201)
+- #### response (Status Code : 201)
 반환은 jwt 토큰 값이 반환됩니다.
 ```Node.js
 {
@@ -57,13 +62,13 @@ http://localhost:3000/auth/logout
 ---
 ## Movie
 ## 1. 상영영화조회 API : GET
-#### URL
+- #### URL
 ```Node.js
 http://localhost:3000/movie/info
 ```
-#### Request (JSON)
+- #### Request (JSON)
 GET요청이라 전달할 값이 없습니다.
-#### response (Status Code : 200)
+- #### response (Status Code : 200)
 ```Node.js
 [
     {
@@ -83,18 +88,20 @@ GET요청이라 전달할 값이 없습니다.
     }
 ]
 ```
+</br>
+</br>
 
 ## 2. 영화 세부 정보 조회 API : GET
-#### URL
+- #### URL
 ```Node.js
 http://localhost:3000/movie/detail-info/:movie_id
 ```
-#### Request (JSON)
-**Path Variables**에 
-Key : movie_id
+- #### Request (JSON)
+**Path Variables**에</br>
+Key : movie_id</br>
 Value : 정수형 값
 
-#### response (Status Code : 200)
+- #### response (Status Code : 200)
 
 ```Node.js
 {
@@ -103,18 +110,20 @@ Value : 정수형 값
     "movie_rating": 2
 }
 ```
+</br>
+</br>
 
 ## 3. 영화 한 줄 평 조회 API : GET
-#### URL
+- #### URL
 ```Node.js
 http://localhost:3000/movie/detail-info/:movie_id
 ```
-#### Request (JSON)
-**Path Variables**에 
-Key : movie_id
+- #### Request (JSON)
+**Path Variables**에</br>
+Key : movie_id</br>
 Value : 정수형 값
 
-#### response (Status Code : 200)
+- #### response (Status Code : 200)
 ```Node.js
 [
     {
@@ -137,13 +146,13 @@ Value : 정수형 값
 ---
 ## Review
 ## 영화 평점 및 한줄평 남기기 API : POST
-#### URL
+- #### URL
 ```Node.js
 http://localhost:3000/review/addReview
 ```
-#### Request (JSON)
-1. Header에 
-Key: Authorization
+- #### Request (JSON)
+1. **Header**에</br>
+Key: Authorization</br>
 Value: Bearer {{token}}
 추가 필요
 
@@ -155,7 +164,7 @@ Value: Bearer {{token}}
   "comment": "fantastic"
 }
 ```
-#### response (Status Code : 201)
+- #### response (Status Code : 201)
 
 ```Node.js
 {
@@ -166,15 +175,15 @@ Value: Bearer {{token}}
 
 ## User
 ## 사용자가 작성한 한 줄 평들 조회 API : GET
-#### URL
+- #### URL
 ```Node.js
 http://localhost:3000/review/addReview
 ```
-#### Request (JSON)
-1. **Header**에 
-Key: Authorization
+- #### Request (JSON)
+1. **Header**에</br>
+Key: Authorization</br>
 Value: Bearer {{token}}
-#### response (Status Code : 201)
+- #### response (Status Code : 201)
 
 ```Node.js
 [
@@ -198,16 +207,18 @@ Value: Bearer {{token}}
     }
 ]
 ```
+</br>
+</br>
 
 ## 2. 회원목록 조회 API : GET
-#### URL
+- #### URL
 ```Node.js
 http://localhost:3000/user/list
 ```
-#### Request (JSON)
+- #### Request (JSON)
 GET 요청 따로 전송할 것 없습니다.
 
-#### response (Status Code : 200)
+- #### response (Status Code : 200)
 ```Node.js
 [
     {
