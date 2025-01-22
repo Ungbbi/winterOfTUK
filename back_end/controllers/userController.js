@@ -1,10 +1,12 @@
 const User = require('../models/User');
+const Review = require('../models/Review');
 
 class UserController {
-    // 유저가 작성한 리뷰들들 조회
+    // 유저가 작성한 리뷰들 조회
   static async getUserReviews(req, res) {
     try {
-      const reviews = await User.getUserReviews(req.params.user_id);
+      console.log("user Id", req.user.id)
+      const reviews = await Review.getUserReviews(req.user.id);
       res.json(reviews);
     } catch (error) {
       res.status(500).json({ error: error.message });

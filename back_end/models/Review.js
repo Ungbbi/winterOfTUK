@@ -13,6 +13,17 @@ class Review {
         );
         return result;
     }
+    
+    static async getUserReviews(userId) {
+        const [result] = await pool.execute(
+            `SELECT r.movie_id, r.comment, r.rate, m.movie_name 
+             FROM review r
+             JOIN movie_info m ON r.movie_id = m.movie_id
+             WHERE r.user_id = ?`,
+            [userId]
+        );
+        return result;
+    }
 }
 
 module.exports = Review;
