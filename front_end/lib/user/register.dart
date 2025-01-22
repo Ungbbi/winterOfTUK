@@ -1,10 +1,16 @@
 import 'package:flutter/material.dart';
+import 'api_service.dart';
 
 class Register extends StatelessWidget {
   const Register({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final _usernameController = TextEditingController();
+    final _emailController = TextEditingController();
+    final _passwordController = TextEditingController();
+    final ApiService _apiService = ApiService();
+
     return Scaffold(
       backgroundColor: Colors.black,
       appBar: AppBar(
@@ -19,45 +25,41 @@ class Register extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             TextField(
-              style: TextStyle(color: Colors.white),
-              decoration: InputDecoration(
-                labelText: 'name',
-                labelStyle: TextStyle(color: Colors.white),
-                enabledBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.white),
-                ),
-              ),
+              controller: _usernameController,
+              decoration: InputDecoration(labelText: 'Username'),
             ),
-            SizedBox(height: 16.0),
             TextField(
-              style: TextStyle(color: Colors.white),
-              decoration: InputDecoration(
-                labelText: 'email',
-                labelStyle: TextStyle(color: Colors.white),
-                enabledBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.white),
-                ),
-              ),
+              controller: _emailController,
+              decoration: InputDecoration(labelText: 'Email'),
             ),
-            SizedBox(height: 16.0),
             TextField(
+              controller: _passwordController,
+              decoration: InputDecoration(labelText: 'Password'),
               obscureText: true,
-              style: TextStyle(color: Colors.white),
-              decoration: InputDecoration(
-                labelText: 'Password',
-                labelStyle: TextStyle(color: Colors.white),
-                enabledBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.white),
-                ),
-              ),
             ),
-            SizedBox(height: 16.0),
+            SizedBox(height: 20),
             ElevatedButton(
-              onPressed: () {
-                // Handle sign-up
+              onPressed: () async {
+                final success = await _apiService.register(
+                  _usernameController.text,
+                  _emailController.text,
+                  _passwordController.text,
+                );
+
+                if (success) {
+                  // 회원가입 성공 시
+                  Navigator.pushReplacementNamed(context, '/login');
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(content: Text('회원가입 성공!')),
+                  );
+                } else {
+                  // 회원가입 실패 시
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(content: Text('회원가입 실패: 다시 시도해 주세요')),
+                  );
+                }
               },
-              style: ElevatedButton.styleFrom(backgroundColor: Colors.red),
-              child: Text('회원가입', style: TextStyle(color: Colors.white)),
+              child: Text('회원가입'),
             ),
           ],
         ),

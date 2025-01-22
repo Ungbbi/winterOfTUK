@@ -1,12 +1,12 @@
 const User = require('../models/User');
-const bcrypt = require('bcrypt');
+const bcryptjs = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
 class AuthController {
     // 회원가입 
   static async signup(req, res) {
     try {
-      const hashedPassword = await bcrypt.hash(req.body.password, 10);
+      const hashedPassword = await bcryptjs.hash(req.body.password, 10);
       const userData = {
         username: req.body.username,
         email: req.body.email,
@@ -26,7 +26,7 @@ class AuthController {
         return res.status(401).json({ error: '이메일이나 비밀번호가 잘못되었습니다.' });
       }
       
-      const validPassword = await bcrypt.compare(req.body.password, user.user_password);
+      const validPassword = await bcryptjs.compare(req.body.password, user.user_password);
       if (!validPassword) {
         return res.status(401).json({ error: '이메일이나 비밀번호가 잘못되었습니다.' });
       }
